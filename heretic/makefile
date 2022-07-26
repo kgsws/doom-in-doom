@@ -11,5 +11,5 @@ clean:
 	rm -f *.o ${program} ${program}.bin
 
 ${program}: ${OBJ}
-	${CC} ${OBJ} ${LIBS} ${BOTH} -o ${program} -nostdlib -Wl,--gc-sections -Wl,--no-ld-generated-unwind-info -Wl,--omagic -Wl,-T linker.ld
+	${CC} ${OBJ} ${LIBS} ${BOTH} -o ${program} -nostdlib -Wl,--gc-sections -Wl,--no-ld-generated-unwind-info -Wl,--omagic -Wl,--no-dynamic-linker -Wl,-T linker.ld
 	objcopy -O binary --only-section=.text --only-section=.rel.dyn --only-section=.hooks --only-section=.rodata --only-section=.data ${program} ${program}.bin

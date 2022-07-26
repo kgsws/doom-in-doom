@@ -119,6 +119,17 @@ reladdr_doom:
 	} while(count && table->addr);
 }
 
+size_t strlen(const char *txt)
+{
+	uint32_t ret = 0;
+	while(*txt)
+	{
+		ret++;
+		txt++;
+	}
+	return ret;
+}
+
 char *stpcpy(char *__restrict __dest, const char *__restrict __src)
 {
 	while(1)
